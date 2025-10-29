@@ -121,3 +121,6 @@ alias cat='bat'
 alias ls='lsd'
 alias gcc='clang'
 alias rclone='rclone -P'
+
+
+termux-api-start  > /dev/null 2>&1 &
