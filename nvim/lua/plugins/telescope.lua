@@ -26,6 +26,8 @@ return {
 
       vim.keymap.set('n', '<leader>fb', builtin.buffers, { desc = 'List buffers' })
       vim.keymap.set('n', '<leader>fh', builtin.help_tags, { desc = 'Search help' })
+      vim.keymap.set('n', '<leader>/fg', builtin.current_buffer_fuzzy_find, { desc = 'Live grep current buffer' })
+ 
     end,
   },
 }
