@@ -2,3 +2,9 @@
 alias ls='lsd'
 . "$HOME/.cargo/env"
 
+setsecret() {
+  local varname=$1
+  read -s "$varname?Enter value for $varname: "
+  echo
+  export $varname
+}
