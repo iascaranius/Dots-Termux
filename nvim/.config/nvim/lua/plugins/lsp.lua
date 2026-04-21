@@ -37,6 +37,23 @@ return {
       vim.lsp.enable("clangd")
       vim.lsp.enable("pyright")
 
+      vim.api.nvim_create_autocmd("LspAttach", {
+  callback = function(args)
+    local buf = args.buf
+    local map = function(k, v) 
+      vim.keymap.set("n", k, v, { buffer = buf }) 
+    end
+
+    map("gd",        vim.lsp.buf.definition)       -- go to definition
+    map("K",         vim.lsp.buf.hover)            -- docs on hover
+    map("gr",        vim.lsp.buf.references)       -- find references
+    map("<leader>rn",vim.lsp.buf.rename)           -- rename symbol
+    map("<leader>ca",vim.lsp.buf.code_action)      -- code actions
+    map("[d",        vim.diagnostic.goto_prev)     -- prev error
+    map("]d",        vim.diagnostic.goto_next)     -- next error
+  end,
+})
+
       -- Completions
       cmp.setup({
         snippet = {
