@@ -10,4 +10,4 @@ return   {
         -- there are no required options atm
       });
     end
-  },
+  }
